@@ -1,0 +1,24 @@
+<div style="margin: 5rem">
+  <h1> Regular working array</h1>
+  {{#each this.arr2 as |item|}}
+    <p>{{item.name}}</p>
+  {{/each}}
+  {{!-- <p>{{this.arr2}}</p> --}}
+  <button {{on "click" this.reverseArr}}>reverse array state</button>
+
+  <hr />
+  <h1> Dragula</h1>
+  <Dragula
+    @onReady={{this.initDragula}}
+    {{!-- @options={{this.dragulaOptions}} --}}
+    as |Container|
+  >
+    <Container>
+      {{#each this.arr2 as |item|}}
+        <h1
+          data-test-email-builder-config-block={{item.name}}
+        >{{item.name}}</h1>
+      {{/each}}
+    </Container>
+  </Dragula>
+</div>
