@@ -20,6 +20,12 @@ export default class Page extends Component {
     this.arr2 = this.arr2.reverse();
   }
 
+  dragulaOptions() {
+    return {
+      revertOnSpill: true,
+    };
+  }
+
   moveBlock(arr, originalIndex, newIndex) {
     function moveIndex(arr, fromIndex, toIndex) {
       let element = arr[fromIndex];
@@ -53,9 +59,12 @@ export default class Page extends Component {
           (block) => block.name == originalConfigBlockId
         );
 
+        console.table(this.arr2);
+        console.log(originalIndex, indexToInsertAt);
+
         // Move the component to the new position within the Config Tray
-        // this.arr2 = this.moveBlock(this.arr2, originalIndex, indexToInsertAt);
-        this.arr2 = [this.arr2[4], this.arr2[3], this.arr2[2], this.arr2[1], this.arr2[0]];
+        this.arr2 = this.moveBlock(this.arr2, originalIndex, indexToInsertAt);
+        // this.arr2 = [this.arr2[4], this.arr2[3], this.arr2[2], this.arr2[1], this.arr2[0]];
       }
     });
   }
